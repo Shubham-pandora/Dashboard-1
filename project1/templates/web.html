@@ -1,0 +1,247 @@
+{% extends 'base.html' %}
+
+{% block title %}WEB{% endblock title %}
+
+{% block body %}
+
+{% for x in service_status %}
+{{x}}
+{% endfor %}
+</br>
+{% for x in service_status_ip %}
+{{x}}
+{% endfor %}
+</br>
+{% for x in service_status_name %}
+{{x}}
+{% endfor %}
+</br>----------------------------------------</br>
+{% for x in WebB1 %}
+<tr> 
+<td>{{ x.id }}</td>
+<td>{{ x.service_name }}</td>
+<td>{{ x.ip1 }}</td>
+<td>{{ x.ip2 }}</td>
+<td>{{ x.ip3 }}</td></br>
+</tr>
+{% endfor %}
+</br>---working-----------------------------------</br>
+{% for opp in finalpass %}
+   <tr>
+        <td>opp.0opp.0opp.0 </td>
+        <td>{{ opp.1 }} </td>
+        <td>{{ opp.2 }}</td> </br>     
+  </tr>
+{% endfor %}
+</br>--------works final----------------------------</br>
+{% for opp in finalpass %}
+  {% for i in opp %}  
+   <tr>
+    <td>{{ i.0 }} </td>
+    <td>{{ i.1 }} </td>
+    <td>{{ i.2 }}</td>      
+  </tr>
+  {% endfor %}</br>
+{% endfor %}
+{% comment %} {{finalpass}} {% endcomment %}
+</br>--------yesss mja aagya---------------------------</br>
+{% for opp in finalpass %}
+  {{opp.0.0}}
+  {% for i in opp %}  
+   <tr>
+    {% comment %} <td>{{ i.0 }} </td> {% endcomment %}
+    {% comment %} <td>{{ i.1 }} </td> {% endcomment %}
+    {% comment %} <td>{{ i.2 }} </td> {% endcomment %}
+    <td>
+      {% if i.2 == 'Running'%}
+      <div class="ser_run">{{ i.1 }} </div>&nbsp;&nbsp;
+
+      {% comment %} {% elif i.2 == 'Absent'%}
+      <div class="ser_absent"> - </div> {% endcomment %}
+    
+      {% else %}
+      <div class="ser_nrun">{{ i.1 }} </div>&nbsp;&nbsp;
+      {% endif %} 
+    <td>
+          
+  </tr>
+  {% endfor %}</br>
+{% endfor %}
+
+</br>--------yesss mja aagya 1---------------------------</br>
+<div class='container'>
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">WEB</th>
+        <th scope="col">Beta-1</th>
+        <th scope="col">Beta-1</th>
+        <th scope="col">Beta-1</th>
+        <th scope="col">Beta-2</th>
+        <th scope="col">Beta-2</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for opp in finalpass %}
+      <tr>
+        <th scope="row">{{opp.0.0}}</th>
+          {% for i in opp %}  
+              <td>
+                {% if i.2 == 'Running'%}
+                <div class="ser_run">{{ i.1 }} </div>
+
+                {% else %}
+                <div class="ser_nrun">{{ i.1 }} </div>
+                {% endif %} 
+              </td>
+
+          {% endfor %}</br>
+        </tr>  
+        {% endfor %}
+        
+    </tbody>
+  </table>
+</div>
+</br>------------------------------------</br>
+
+
+<div class='container'>
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">WEB</th>
+        <th scope="col">Beta-1</th>
+        <th scope="col">Beta-2</th>
+        <th scope="col">Beta-3</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">Streams</th>
+        <td>
+          {% if result_streams178 == 'Running' %}
+          <div class="ser_run">10.30.48.178 </div>
+
+          {% else %}
+          <div class="ser_nrun">10.30.48.178 </div>
+          {% endif %} 
+        <td>
+          {% if result_streams183 == 'Running' %}
+          <div class="ser_run">10.30.48.183 </div>
+
+          {% else %}
+          <div class="ser_nrun">10.30.48.183 </div>
+          {% endif %} 
+        </td>
+        <td>
+          {% if result_streams185 == 'Running' %}
+          <div class="ser_run">10.30.48.185 </div>
+
+          {% else %}
+          <div class="ser_nrun">10.30.48.185 </div>
+          {% endif %} 
+          </td>
+      </tr>
+      <tr>
+        <th scope="row">Admin5</th>
+        <td>
+          {% if result_Admin5153 == 'Running' %}
+          <div class="ser_run">10.30.48.153 </div>
+
+          {% else %}
+          <div class="ser_nrun">10.30.48.153 </div>
+          {% endif %}           
+        </td>
+        <td>
+          {% if result_Admin5154 == 'Running' %}
+          <div class="ser_run">10.30.48.154</div>
+
+          {% else %}
+          <div class="ser_nrun">10.30.48.154</div>
+          {% endif %}  
+        </td>
+        <td>
+          {% if result_Admin5192 == 'Running' %}
+          <div class="ser_run">10.30.48.192</div>
+
+          {% else %}
+          <div class="ser_nrun">10.30.48.192</div>
+          {% endif %}  
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">SmartBox</th>
+        <td>10.60.48.106</td>
+        <td>10.60.48.105</td>
+        <td>-</td>
+      </tr>
+      <tr>
+        <th scope="row">SB-Gatekeeper</th>
+        <td>10.60.48.106</td>
+        <td>10.60.48.105</td>
+        <td>-</td>
+      </tr>
+      <tr>
+        <th scope="row">Partner portal</th>
+        <td>10.60.48.106</td>
+        <td>10.60.48.105</td>
+        <td>-</td>
+      </tr>
+      <tr>
+        <th scope="row">QuoteNow</th>
+        <td>10.60.48.106</td>
+        <td>10.60.48.105</td>
+        <td>-</td>
+      </tr>
+      <tr>
+        <th scope="row">SBAdmin</th>
+        <td>10.60.48.106</td>
+        <td>10.60.48.105</td>
+        <td>-</td>
+      </tr>
+      <tr>
+        <th scope="row">APIHandler</th>
+        <td>10.60.48.106</td>
+        <td>10.60.48.105</td>
+        <td>-</td>
+      </tr>
+      <tr>
+        <th scope="row">WSAuth</th>
+        <td>10.60.48.106</td>
+        <td>10.60.48.105</td>
+        <td>-</td>
+      </tr>
+      <tr>
+        <th scope="row">Contacts</th>
+        <td>10.60.48.106</td>
+        <td>10.60.48.105</td>
+        <td>-</td>
+      </tr>
+      <tr>
+        <th scope="row">ActiveMQ</th>
+        <td>10.60.48.106</td>
+        <td>10.60.48.105</td>
+        <td>-</td>
+      </tr>
+      <tr>
+        <th scope="row">Billing Manager /Payment Manager</th>
+        <td>10.60.48.106</td>
+        <td>10.60.48.105</td>
+        <td>-</td>
+      </tr>
+      <tr>
+        <th scope="row">Billing Engine</th>
+        <td>10.60.48.106</td>
+        <td>10.60.48.105</td>
+        <td>-</td>
+      </tr>
+
+      
+    </tbody>
+  </table>
+
+</div>
+Hi Shubham - web services list
+class ser_run defined in base templateHi Shubham - web services list
+class ser_run defined in base template
+{% endblock body %}
